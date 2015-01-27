@@ -1,0 +1,25 @@
+{
+    "name": "mgee/simple-dav",
+    "version": "0.1.0",
+    "license": "MIT",
+    "type": "project",
+    "description": "Simplistic WebDAV, CalDAV, CardDAV server using SabreDAV.",
+    "keywords": ["WebDAV", "CalDAV", "CardDAV", "Server"],
+    "homepage": "https://github.com/mgee/simple-dav",
+    "authors" : [
+        {
+            "name" : "Markus Engelbrecht",
+            "email" : "github@enbre.com",
+            "homepage" : "https://github.com/mgee",
+            "role" : "Developer"
+        }
+    ],
+    "require": {
+        "sabre/dav": "~2.1"
+    },
+    "autoload": {
+        "psr-4" : {
+            "SimpleDAV\\": "lib/"
+        }
+    }
+}
