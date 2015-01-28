@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "713c02e401c44e39095f680a61c96fb4",
+    "hash": "004c134775ffb25135626fce39135466",
     "packages": [
         {
             "name": "sabre/dav",
@@ -251,6 +251,8 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=5.5.0"
+    },
     "platform-dev": []
 }
