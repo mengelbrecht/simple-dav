@@ -3,13 +3,8 @@
     "version": "0.1.0",
     "license": "MIT",
     "type": "project",
-    "description": "Simplistic WebDAV, CalDAV, CardDAV server using SabreDAV.",
-    "keywords": [
-        "WebDAV",
-        "CalDAV",
-        "CardDAV",
-        "Server"
-    ],
+    "description": "Simplistic WebDAV, CalDAV and CardDAV server using SabreDAV.",
+    "keywords": ["WebDAV", "CalDAV", "CardDAV", "Server"],
     "homepage": "https://github.com/mgee/simple-dav",
     "authors": [
         {
