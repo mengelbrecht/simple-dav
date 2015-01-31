@@ -2,14 +2,13 @@ SimpleDAV
 =========
 
 SimpleDAV is a simplistic WebDAV, CalDAV and CardDAV server using [SabreDAV](https://github.com/fruux/sabre-dav).
-It is easy to setup and has almost no dependencies. For authentication it uses an IMAP server (for now).
+It is easy to setup and has almost no dependencies.
 
 Requirements
 ------------
 * PHP >= 5.5
 * SQLite
 * [Composer](https://getcomposer.org/)
-* IMAP server for authentication (this requirement will be dropped in a later version)
 
 Installation
 ------------
@@ -21,13 +20,12 @@ Installation
 Configuration & Usage
 ---------------------
 
-1. Open the `config.php` file and adjust the address of the IMAP server if necessary (e.g. enable certificate checking).
+1. Open `https://your-domain-here/simple-dav/` in your browser (adjust the URL for your server).
 
-2. Open `https://your-domain-here/simple-dav/server.php/` in your browser (adjust the URL for your server).
+2. Login using the username *admin* and password *admin*.
 
-3. Authenticate using your username and password for the IMAP server.
-SimpleDAV automatically creates a user with the provided username if the authentication succeeded.
-The created user also has a default address book and calendar already.
+3. Change the password of your account (and change the username if you want). 
+*This part is not yet working. The username and password can only be changed manually using SQLite at the moment.*
 
 4. Setup your clients to use the CalDAV and CardDAV server by specifying the URL `https://your-domain-here/simple-dav/server.php/`.
 Alternatively, if you have configured service discovery (see next section) you can just use `https://your-domain-here` as URL.

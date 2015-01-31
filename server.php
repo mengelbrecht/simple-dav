@@ -13,17 +13,12 @@ set_error_handler('exception_error_handler');
 
 $pdo = PicoDb\Database::get('db')->getConnection();
 
-$authBackend = new \SimpleDAV\Auth\ServiceAuth(
-    new \SimpleDAV\Auth\Backend\IMAP(IMAP_SERVER),
-    new \SimpleDAV\Model\HashController(),
-    new \SimpleDAV\Hash\Blowfish());
-
 $principalBackend = new \Sabre\DAVACL\PrincipalBackend\PDO($pdo);
 $cardDAVBackend = new \Sabre\CardDAV\Backend\PDO($pdo);
 $calDAVBackend = new \Sabre\CalDAV\Backend\PDO($pdo);
 $lockBackend = new \Sabre\DAV\Locks\Backend\File(LOCKDB_FILE);
 
-$authPlugin = new Sabre\DAV\Auth\Plugin($authBackend, 'SimpleDAV');
+$authPlugin = new Sabre\DAV\Auth\Plugin(new \SimpleDAV\Auth\PDOAuth(), 'SimpleDAV');
 
 /** Top level directories of the WebDAV server. */
 $nodes = [

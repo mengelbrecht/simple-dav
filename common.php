@@ -12,7 +12,6 @@ define('WEBDAV_DIRECTORY', DATA_DIRECTORY . DIRECTORY_SEPARATOR . 'files');
 define('TEMP_DIRECTORY', DATA_DIRECTORY . DIRECTORY_SEPARATOR . 'temp');
 define('LOCKDB_FILE', TEMP_DIRECTORY . DIRECTORY_SEPARATOR . 'locksdb');
 
-defined('IMAP_SERVER') or define('IMAP_SERVER', '{localhost:143/novalidate-cert}INBOX');
 defined('DB_FILE') or define('DB_FILE', DATA_DIRECTORY.DIRECTORY_SEPARATOR.'db.sqlite');
 
 if (version_compare(PHP_VERSION, '5.5.0', '<'))
