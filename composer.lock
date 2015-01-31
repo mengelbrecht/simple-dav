@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4a4153669db954411ec7b07513c8312b",
+    "hash": "96cc2658d35d44af054c85f95f163858",
     "packages": [
         {
             "name": "fguillot/picodb",
-            "version": "v0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fguillot/picoDb.git",
-                "reference": "f36d8e0191e2fa6f033baf94bc35ec6a00798bc0"
+                "reference": "b3ef5f79e7e5e33729fdbf9c02c8a252a3d76b6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fguillot/picoDb/zipball/f36d8e0191e2fa6f033baf94bc35ec6a00798bc0",
-                "reference": "f36d8e0191e2fa6f033baf94bc35ec6a00798bc0",
+                "url": "https://api.github.com/repos/fguillot/picoDb/zipball/b3ef5f79e7e5e33729fdbf9c02c8a252a3d76b6b",
+                "reference": "b3ef5f79e7e5e33729fdbf9c02c8a252a3d76b6b",
                 "shasum": ""
             },
             "require": {
@@ -41,7 +41,44 @@
             ],
             "description": "Minimalist database query builder",
             "homepage": "https://github.com/fguillot/picoDb",
-            "time": "2015-01-18 22:35:36"
+            "time": "2015-01-25 16:20:14"
+        },
+        {
+            "name": "fguillot/picofarad",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fguillot/picoFarad.git",
+                "reference": "749506cd204ae05c3cc8894be1b4302b4aed6e53"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fguillot/picoFarad/zipball/749506cd204ae05c3cc8894be1b4302b4aed6e53",
+                "reference": "749506cd204ae05c3cc8894be1b4302b4aed6e53",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PicoFarad": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Unlicense"
+            ],
+            "authors": [
+                {
+                    "name": "Frédéric Guillot",
+                    "homepage": "http://fredericguillot.com"
+                }
+            ],
+            "description": "Minimalist micro-framework",
+            "homepage": "https://github.com/fguillot/picoFarad",
+            "time": "2015-01-17 23:58:31"
         },
         {
             "name": "sabre/dav",
@@ -286,7 +323,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "fguillot/picodb": 0
+        "fguillot/picodb": 20,
+        "fguillot/picofarad": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

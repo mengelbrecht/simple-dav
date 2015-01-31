@@ -17,7 +17,8 @@
     "require": {
         "php": ">=5.5.0",
         "sabre/dav": "~2.1",
-        "fguillot/picodb": "@stable"
+        "fguillot/picodb": "dev-master",
+        "fguillot/picofarad": "dev-master"
     },
     "autoload": {
         "files": [
