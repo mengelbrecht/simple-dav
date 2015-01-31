@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleDAV\DB;
+namespace SimpleDAV\Model;
 
 class DB implements HashController {
     private $pdo;

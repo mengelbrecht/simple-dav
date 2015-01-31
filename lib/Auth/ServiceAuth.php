@@ -4,7 +4,7 @@ namespace SimpleDAV\Auth;
 
 use Sabre\DAV\Auth\Backend\AbstractBasic;
 use SimpleDAV\Auth\Backend\ServiceBackend;
-use SimpleDAV\DB\HashController;
+use SimpleDAV\Model\HashController;
 use SimpleDAV\Hash\HashAlgorithm;
 
 class ServiceAuth extends AbstractBasic {

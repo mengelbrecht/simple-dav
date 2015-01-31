@@ -26,7 +26,7 @@ set_error_handler('exception_error_handler');
 
 $authBackend = new \SimpleDAV\Auth\ServiceAuth(
     new \SimpleDAV\Auth\Backend\IMAP($config['imap_server']),
-    new \SimpleDAV\DB\DB($pdo),
+    new \SimpleDAV\Model\DB($pdo),
     new \SimpleDAV\Hash\Blowfish());
 
 $principalBackend = new \Sabre\DAVACL\PrincipalBackend\PDO($pdo);

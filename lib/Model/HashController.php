@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleDAV\DB;
+namespace SimpleDAV\Model;
 
 interface HashController {
 
