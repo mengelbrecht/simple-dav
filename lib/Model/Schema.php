@@ -2,6 +2,8 @@
 
 namespace Schema;
 
+use SimpleDAV\Hash\HashFactory;
+
 const Version = 1;
 
 function version_1(\PDO $pdo) {
@@ -167,4 +169,10 @@ function version_1(\PDO $pdo) {
             UNIQUE(username)
         );
     ');
+
+    $adminHash = HashFactory::createHashAlgorithm()->hash('admin');
+    $pdo->exec('INSERT INTO users (username, digesta1) VALUES ("admin", "' . $adminHash . '");');
+    $pdo->exec('INSERT INTO principals (uri, displayname) VALUES ("principals/admin", "admin");');
+    $pdo->exec('INSERT INTO principals (uri) VALUES ("principals/admin/calendar-proxy-read");');
+    $pdo->exec('INSERT INTO principals (uri) VALUES ("principals/admin/calendar-proxy-write");');
 }
