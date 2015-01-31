@@ -3,7 +3,7 @@
 namespace SimpleDAV\Hash;
 
 interface HashAlgorithm {
-    function hash($data);
+    function hash($password);
 
-    function verify($data, $hash);
+    function verify($password, $hash);
 }
