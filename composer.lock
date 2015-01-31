@@ -4,8 +4,45 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4ffd34143b18d91bf0b4900ab7657ddc",
+    "hash": "4a4153669db954411ec7b07513c8312b",
     "packages": [
+        {
+            "name": "fguillot/picodb",
+            "version": "v0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fguillot/picoDb.git",
+                "reference": "f36d8e0191e2fa6f033baf94bc35ec6a00798bc0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fguillot/picoDb/zipball/f36d8e0191e2fa6f033baf94bc35ec6a00798bc0",
+                "reference": "f36d8e0191e2fa6f033baf94bc35ec6a00798bc0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PicoDb": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "WTFPL"
+            ],
+            "authors": [
+                {
+                    "name": "Frédéric Guillot",
+                    "homepage": "http://fredericguillot.com"
+                }
+            ],
+            "description": "Minimalist database query builder",
+            "homepage": "https://github.com/fguillot/picoDb",
+            "time": "2015-01-18 22:35:36"
+        },
         {
             "name": "sabre/dav",
             "version": "2.1.2",
@@ -248,7 +285,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "fguillot/picodb": 0
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

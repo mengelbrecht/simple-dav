@@ -1,21 +1,14 @@
 <?php
 
-require_once 'config.php';
+require_once __DIR__ . '/common.php';
 
 $publicDir = 'public';
 $tmpDir = 'tmpdata';
-
 $rootPath = dirname(__FILE__);
 $baseUri = '/' . basename($rootPath) . '/' . basename(__FILE__);
 $homePath = $rootPath . '/' . $publicDir;
 
-// AutoLoader
-require_once 'vendor/autoload.php';
-
 date_default_timezone_set('UTC');
-
-$pdo = new \PDO('sqlite:data/db.sqlite');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 /** Map PHP errors to exceptions to send a proper response back to the client (HTTP/1.1 500). */
 function exception_error_handler($errno, $errstr, $errfile, $errline) {
@@ -24,9 +17,11 @@ function exception_error_handler($errno, $errstr, $errfile, $errline) {
 
 set_error_handler('exception_error_handler');
 
+$pdo = PicoDb\Database::get('db')->getConnection();
+
 $authBackend = new \SimpleDAV\Auth\ServiceAuth(
-    new \SimpleDAV\Auth\Backend\IMAP($config['imap_server']),
-    new \SimpleDAV\Model\DB($pdo),
+    new \SimpleDAV\Auth\Backend\IMAP(IMAP_SERVER),
+    new \SimpleDAV\Model\HashController(),
     new \SimpleDAV\Hash\Blowfish());
 
 $principalBackend = new \Sabre\DAVACL\PrincipalBackend\PDO($pdo);

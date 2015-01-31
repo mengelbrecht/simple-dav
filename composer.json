@@ -16,9 +16,13 @@
     ],
     "require": {
         "php": ">=5.5.0",
-        "sabre/dav": "~2.1"
+        "sabre/dav": "~2.1",
+        "fguillot/picodb": "@stable"
     },
     "autoload": {
+        "files": [
+            "lib/Model/Schema.php"
+        ],
         "psr-4": {
             "SimpleDAV\\": "lib/"
         }
