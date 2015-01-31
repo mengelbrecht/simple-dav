@@ -12,7 +12,7 @@ define('WEBDAV_DIRECTORY', DATA_DIRECTORY . DIRECTORY_SEPARATOR . 'files');
 define('TEMP_DIRECTORY', DATA_DIRECTORY . DIRECTORY_SEPARATOR . 'temp');
 define('LOCKDB_FILE', TEMP_DIRECTORY . DIRECTORY_SEPARATOR . 'locksdb');
 
-defined('DB_FILE') or define('DB_FILE', DATA_DIRECTORY.DIRECTORY_SEPARATOR.'db.sqlite');
+defined('DB_FILE') or define('DB_FILE', DATA_DIRECTORY . DIRECTORY_SEPARATOR . 'db.sqlite');
 
 if (version_compare(PHP_VERSION, '5.5.0', '<'))
     die('This software requires at least PHP 5.5.0');
@@ -23,8 +23,7 @@ if (!extension_loaded('pdo_sqlite'))
 if (!is_writable(DATA_DIRECTORY))
     die('The data directory must be writeable by your web server user');
 
-
-PicoDb\Database::bootstrap('db', function() {
+PicoDb\Database::bootstrap('db', function () {
 
     $db = new PicoDb\Database([
         'driver' => 'sqlite',
