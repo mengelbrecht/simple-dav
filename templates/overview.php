@@ -19,8 +19,8 @@
         </div>
         <div class="navbar-collapse collapse navbar-inverse-collapse" id="navbar-main">
             <ul class="nav navbar-nav">
-                <li><a href="?action=users">Manager Users</a></li>
-                <li><a href="?action=statistics">Statistics</a></li>
+                <li><a href="?action=users"><i class="fa fa-users"></i> Manage Users</a></li>
+                <li><a href="?action=statistics"><i class="fa fa-server"></i> Statistics</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
