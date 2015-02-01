@@ -26,6 +26,10 @@ body {
     font-size: 16px;
 }
 
+.form-signin .input-padding-right {
+  padding-right: 35px;
+}
+
 .form-signin .btn {
     margin-bottom: 20px;
 }

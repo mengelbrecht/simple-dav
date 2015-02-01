@@ -17,10 +17,10 @@
 
         <h2 class="form-signin-heading">Please sign in</h2>
         <input type="text" name="username" id=username" class="form-control" placeholder="Username" value="<?= SimpleDAV\Utils::escape($values['username']) ?>" required <?= isset($error) ? "" : "autofocus"?>>
-    <?php if (isset($error)): ?>
+<?php if (isset($error)): ?>
         <div class="form-group has-error has-feedback">
 <?php endif ?>
-            <input class="form-control" name="password" type="password" placeholder="Password" value="<?= isset($error) ? "" : SimpleDAV\Utils::escape($values['password']) ?>" required  <?= isset($error) ? "autofocus" : "" ?>>
+            <input class="form-control <?= isset($error) ? 'input-padding-right' : '' ?>" name="password" type="password" placeholder="Password" value="<?= isset($error) ? "" : SimpleDAV\Utils::escape($values['password']) ?>" required  <?= isset($error) ? "autofocus" : "" ?>>
 <?php if (isset($error)): ?>
             <span class="fa fa-exclamation-circle form-control-feedback input-suffix" aria-hidden="true"></span>
         </div>
