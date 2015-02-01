@@ -9,9 +9,8 @@ use SimpleDAV\Model\User;
 
 
 Router\get_action('overview', function() {
-    Response\html(Template\load('overview', [
-        'values' => [
-            'username' => User::loggedIn()
-        ]
+    Response\html(Template\layout('overview', [
+        'page' => 'overview',
+        'username' => User::loggedIn()
     ]));
 });
