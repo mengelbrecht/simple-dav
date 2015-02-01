@@ -37,6 +37,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li class="navbar-text">Signed in as <?= SimpleDAV\Utils::escape($username) ?></li>
                 <li><a href="?action=logout"><i class="fa fa-sign-out"></i> Logout</a></li>
             </ul>
         </div>
