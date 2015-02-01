@@ -16,14 +16,13 @@
         <input type="hidden" name="csrf" id="form-csrf" value="<?= $values['csrf'] ?>"/>
 
         <h2 class="form-signin-heading">Please sign in</h2>
-<?php if (isset($error)): ?>
-        <div class="form-group has-error">
+        <input type="text" name="username" id=username" class="form-control" placeholder="Username" value="<?= SimpleDAV\Utils::escape($values['username']) ?>" required <?= isset($error) ? "" : "autofocus"?>>
+    <?php if (isset($error)): ?>
+        <div class="form-group has-error has-feedback">
 <?php endif ?>
-        <label for="inputEmail" class="sr-only">Username</label>
-        <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <input class="form-control" name="password" type="password" placeholder="Password" value="<?= isset($error) ? "" : SimpleDAV\Utils::escape($values['password']) ?>" required  <?= isset($error) ? "autofocus" : "" ?>>
 <?php if (isset($error)): ?>
+            <span class="fa fa-exclamation-circle form-control-feedback input-suffix" aria-hidden="true"></span>
         </div>
 <?php endif ?>
         <div class="checkbox"><label><input type="checkbox" value="remember-me"> Remember me</label></div>

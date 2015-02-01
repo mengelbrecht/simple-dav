@@ -29,3 +29,7 @@ body {
 .form-signin .btn {
     margin-bottom: 20px;
 }
+
+.form-signin .input-suffix {
+    margin-top: 15px;
+}
