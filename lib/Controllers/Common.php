@@ -21,8 +21,21 @@ Router\before(function ($action) {
     Response\csp([
         'media-src' => '*',
         'img-src' => '*',
-        'style-src' => '*',
-        'font-src' => '*',
+        'style-src' => [
+            "'self'",
+            'https://fonts.googleapis.com',
+            'https://maxcdn.bootstrapcdn.com',
+        ],
+        'font-src' => [
+            "'self'",
+            'https://fonts.gstatic.com',
+            'https://maxcdn.bootstrapcdn.com'
+        ],
+        'script-src' => [
+            "'self'",
+            'https://code.jquery.com',
+            'https://maxcdn.bootstrapcdn.com'
+        ]
     ]);
     Response\xframe();
     Response\xss();
