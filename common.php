@@ -25,6 +25,9 @@ if (version_compare(PHP_VERSION, '5.5.0', '<'))
 if (!extension_loaded('pdo_sqlite'))
     die('PHP extension required: pdo_sqlite');
 
+if (!extension_loaded('mcrypt'))
+    die('PHP extension required: mcrypt');
+
 if (!is_writable(DATA_DIRECTORY))
     die('The data directory must be writeable by your web server user');
 
