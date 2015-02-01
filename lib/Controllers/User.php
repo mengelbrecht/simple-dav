@@ -46,6 +46,6 @@ Router\post_action('login', function () {
         ]));
     }
 
-    $_SESSION['loggedin'] = true;
+    $_SESSION['loggedin'] = $values['username'];
     Response\redirect('?action=overview');
 });

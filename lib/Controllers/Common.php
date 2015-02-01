@@ -12,7 +12,8 @@ Router\before(function ($action) {
 
     Session\open(BASE_DIRECTORY, '', 0);
 
-    if (!User::loggedIn() && $action !== 'login') {
+    $loggedIn = User::loggedIn();
+    if (!isset($loggedIn) && $action !== 'login') {
         User::logout();
         Response\redirect('?action=login');
     }
