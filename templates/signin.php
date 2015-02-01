@@ -16,23 +16,21 @@
         <input type="hidden" name="csrf" id="form-csrf" value="<?= $values['csrf'] ?>"/>
 
         <h2 class="form-signin-heading">Please sign in</h2>
+<?php if (isset($error)): ?>
+        <div class="form-group has-error">
+<?php endif ?>
         <label for="inputEmail" class="sr-only">Username</label>
-        <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required
-               autofocus>
+        <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-
-        <div class="checkbox">
-            <label><input type="checkbox" value="remember-me"> Remember me</label>
+<?php if (isset($error)): ?>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">
-            <i class="fa fa-sign-in"></i> Sign in
-        </button>
-        <?php if (isset($error)): ?>
-            <div class="alert alert-danger">
-                <i class="fa fa-exclamation-circle"></i> <?= SimpleDAV\Utils::escape($error) ?>
-            </div>
-        <?php endif ?>
+<?php endif ?>
+        <div class="checkbox"><label><input type="checkbox" value="remember-me"> Remember me</label></div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit"><i class="fa fa-sign-in"></i> Sign in</button>
+<?php if (isset($error)): ?>
+        <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> <?= SimpleDAV\Utils::escape($error) ?></div>
+<?php endif ?>
     </form>
 </div>
 </body>
