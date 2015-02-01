@@ -24,7 +24,7 @@
             </button>
             <a class="navbar-brand" href="#">SimpleDAV</a>
         </div>
-        <div class="navbar-collapse collapse navbar-inverse-collapse" id="navbar-main">
+        <div id="navbar" class="navbar-collapse collapse navbar-inverse-collapse">
             <ul class="nav navbar-nav">
                 <li <?= isset($page) && $page === "overview" ? 'class="active"' : '' ?>>
                     <a href="?action=overview"><i class="fa fa-user"></i> Overview</a>
@@ -45,5 +45,7 @@
 <div class="container">
     <?= $content_for_layout ?>
 </div>
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
 </html>
