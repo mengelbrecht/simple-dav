@@ -3,8 +3,17 @@
 namespace SimpleDAV\Model;
 
 use PicoDb\Database;
+use PicoFarad\Session;
 
 class User {
+
+    public static function loggedIn() {
+        return !empty($_SESSION['loggedin']);
+    }
+
+    public static function logout() {
+        Session\close();
+    }
 
     public static function exists($username) {
         return Database::get('db')->table('users')->equals('username', $username)->count() === 1;

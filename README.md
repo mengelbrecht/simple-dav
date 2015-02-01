@@ -40,11 +40,6 @@ Redirect /.well-known/carddav /simple-dav/server.php/
 Redirect /.well-known/caldav /simple-dav/server.php/
 ```
 
-Another useful redirect is the shortcut to the `server.php`:
-```
-RedirectMatch ^/simple-dav/?$ /simple-dav/server.php/
-```
-
 License
 -------
 

@@ -22,7 +22,12 @@
     },
     "autoload": {
         "files": [
-            "lib/Model/Schema.php"
+            "lib/Model/Schema.php",
+            "vendor/fguillot/picofarad/lib/PicoFarad/Template.php",
+            "vendor/fguillot/picofarad/lib/PicoFarad/Response.php",
+            "vendor/fguillot/picofarad/lib/PicoFarad/Request.php",
+            "vendor/fguillot/picofarad/lib/PicoFarad/Session.php",
+            "vendor/fguillot/picofarad/lib/PicoFarad/Router.php"
         ],
         "psr-4": {
             "SimpleDAV\\": "lib/"

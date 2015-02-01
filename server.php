@@ -29,6 +29,7 @@ $nodes = [
 ];
 
 $server = new \Sabre\DAV\Server($nodes);
+$server->setBaseUri(BASE_DIRECTORY . DIRECTORY_SEPARATOR . basename(__FILE__));
 $server->addPlugin($authPlugin);
 $server->addPlugin(new \Sabre\DAV\Browser\Plugin());
 $server->addPlugin(new \Sabre\CalDAV\Plugin());
