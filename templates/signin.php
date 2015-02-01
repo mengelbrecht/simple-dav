@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="../favicon.ico">
     <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/flatly/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/signin.css" rel="stylesheet">
     <title>Sign in</title>
 </head>
@@ -25,13 +26,11 @@
             <label><input type="checkbox" value="remember-me"> Remember me</label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">
-            <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Sign in
+            <i class="fa fa-sign-in"></i> Sign in
         </button>
         <?php if (isset($error)): ?>
             <div class="alert alert-danger">
-                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                <span class="sr-only">Error:</span>
-                <?= SimpleDAV\Utils::escape($error) ?>
+                <i class="fa fa-exclamation-circle"></i> <?= SimpleDAV\Utils::escape($error) ?>
             </div>
         <?php endif ?>
     </form>

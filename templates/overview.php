@@ -9,6 +9,7 @@
     <link rel="icon" href="../favicon.ico">
     <title>Overview</title>
     <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/flatly/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -24,7 +25,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="?action=logout">
-                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout
+                        <i class="fa fa-sign-out"></i> Logout
                     </a>
                 </li>
             </ul>
