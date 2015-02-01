@@ -8,7 +8,7 @@ use PicoFarad\Session;
 class User {
 
     public static function loggedIn() {
-        return $_SESSION['loggedin'];
+        return empty($_SESSION['loggedin']) ? null : $_SESSION['loggedin'];
     }
 
     public static function logout() {

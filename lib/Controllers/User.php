@@ -23,7 +23,11 @@ Router\get_action('login', function () {
 
     Response\html(Template\load('signin', [
         'error' => null,
-        'values' => ['csrf' => CSRFToken::generate()]
+        'values' => [
+            'csrf' => CSRFToken::generate(),
+            'username' => '',
+            'password' => ''
+        ]
     ]));
 });
 
