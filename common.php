@@ -6,7 +6,14 @@ if (file_exists(__DIR__ . '/config.php'))
     require_once __DIR__ . '/config.php';
 
 // Set default configuration
-define('BASE_DIRECTORY', dirname($_SERVER['PHP_SELF']));
+function getBaseDirectory() {
+    $dir = $_SERVER['PHP_SELF'];
+    while (strrpos($dir, '.php'))
+        $dir = dirname($dir);
+    return $dir;
+}
+
+define('BASE_DIRECTORY', getBaseDirectory());
 define('ROOT_DIRECTORY', __DIR__);
 define('DATA_DIRECTORY', ROOT_DIRECTORY . DIRECTORY_SEPARATOR . 'data');
 define('WEBDAV_DIRECTORY', DATA_DIRECTORY . DIRECTORY_SEPARATOR . 'files');
