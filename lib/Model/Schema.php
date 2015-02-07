@@ -9,34 +9,34 @@ const Version = 1;
 function version_1(\PDO $pdo) {
     $pdo->exec('
         CREATE TABLE addressbooks (
-            id integer primary key asc,
-            principaluri text,
-            displayname text,
-            uri text,
-            description text,
-            synctoken integer
+            id INTEGER PRIMARY KEY ASC,
+            principaluri TEXT,
+            displayname TEXT,
+            uri TEXT,
+            description TEXT,
+            synctoken INTEGER
         );
     ');
 
     $pdo->exec('
         CREATE TABLE cards (
-            id integer primary key asc,
-            addressbookid integer,
-            carddata blob,
-            uri text,
-            lastmodified integer,
-            etag text,
-            size integer
+            id INTEGER PRIMARY KEY ASC,
+            addressbookid INTEGER,
+            carddata BLOB,
+            uri TEXT,
+            lastmodified INTEGER,
+            etag TEXT,
+            size INTEGER
         );
     ');
 
     $pdo->exec('
         CREATE TABLE addressbookchanges (
-            id integer primary key asc,
-            uri text,
-            synctoken integer,
-            addressbookid integer,
-            operation integer
+            id INTEGER PRIMARY KEY ASC,
+            uri TEXT,
+            synctoken INTEGER,
+            addressbookid INTEGER,
+            operation INTEGER
         );
     ');
 
@@ -44,43 +44,43 @@ function version_1(\PDO $pdo) {
 
     $pdo->exec('
         CREATE TABLE calendarobjects (
-            id integer primary key asc,
-            calendardata blob,
-            uri text,
-            calendarid integer,
-            lastmodified integer,
-            etag text,
-            size integer,
-            componenttype text,
-            firstoccurence integer,
-            lastoccurence integer,
-            uid text
+            id INTEGER PRIMARY KEY ASC,
+            calendardata BLOB,
+            uri TEXT,
+            calendarid INTEGER,
+            lastmodified INTEGER,
+            etag TEXT,
+            size INTEGER,
+            componenttype TEXT,
+            firstoccurence INTEGER,
+            lastoccurence INTEGER,
+            uid TEXT
         );
     ');
 
     $pdo->exec('
         CREATE TABLE calendars (
-            id integer primary key asc,
-            principaluri text,
-            displayname text,
-            uri text,
-            synctoken integer,
-            description text,
-            calendarorder integer,
-            calendarcolor text,
-            timezone text,
-            components text,
-            transparent bool
+            id INTEGER PRIMARY KEY ASC,
+            principaluri TEXT,
+            displayname TEXT,
+            uri TEXT,
+            synctoken INTEGER,
+            description TEXT,
+            calendarorder INTEGER,
+            calendarcolor TEXT,
+            timezone TEXT,
+            components TEXT,
+            transparent BOOL
         );
     ');
 
     $pdo->exec('
         CREATE TABLE calendarchanges (
-            id integer primary key asc,
-            uri text,
-            synctoken integer,
-            calendarid integer,
-            operation integer
+            id INTEGER PRIMARY KEY ASC,
+            uri TEXT,
+            synctoken INTEGER,
+            calendarid INTEGER,
+            operation INTEGER
         );
     ');
 
@@ -88,30 +88,30 @@ function version_1(\PDO $pdo) {
 
     $pdo->exec('
         CREATE TABLE calendarsubscriptions (
-            id integer primary key asc,
-            uri text,
-            principaluri text,
-            source text,
-            displayname text,
-            refreshrate text,
-            calendarorder integer,
-            calendarcolor text,
-            striptodos bool,
-            stripalarms bool,
-            stripattachments bool,
-            lastmodified int
+            id INTEGER PRIMARY KEY ASC,
+            uri TEXT,
+            principaluri TEXT,
+            source TEXT,
+            displayname TEXT,
+            refreshrate TEXT,
+            calendarorder INTEGER,
+            calendarcolor TEXT,
+            striptodos BOOL,
+            stripalarms BOOL,
+            stripattachments BOOL,
+            lastmodified INTEGER
         );
     ');
 
     $pdo->exec('
         CREATE TABLE schedulingobjects (
-            id integer primary key asc,
-            principaluri text,
-            calendardata blob,
-            uri text,
-            lastmodified integer,
-            etag text,
-            size integer
+            id INTEGER PRIMARY KEY ASC,
+            principaluri TEXT,
+            calendardata BLOB,
+            uri TEXT,
+            lastmodified INTEGER,
+            etag TEXT,
+            size INTEGER
         );
     ');
 
@@ -119,14 +119,14 @@ function version_1(\PDO $pdo) {
 
     $pdo->exec('
         CREATE TABLE locks (
-            id integer primary key asc,
-            owner text,
-            timeout integer,
-            created integer,
-            token text,
-            scope integer,
-            depth integer,
-            uri text
+            id INTEGER PRIMARY KEY ASC,
+            owner TEXT,
+            timeout INTEGER,
+            created INTEGER,
+            token TEXT,
+            scope INTEGER,
+            depth INTEGER,
+            uri TEXT
         );
     ');
 
@@ -152,7 +152,7 @@ function version_1(\PDO $pdo) {
 
     $pdo->exec('
         CREATE TABLE propertystorage (
-            id integer primary key asc,
+            id INTEGER PRIMARY KEY ASC,
             path TEXT,
             name TEXT,
             value TEXT
@@ -163,7 +163,7 @@ function version_1(\PDO $pdo) {
 
     $pdo->exec('
         CREATE TABLE users (
-            id integer primary key asc,
+            id INTEGER PRIMARY KEY ASC,
             username TEXT,
             digesta1 TEXT,
             UNIQUE(username)
