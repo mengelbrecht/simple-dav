@@ -166,12 +166,13 @@ function version_1(\PDO $pdo) {
             id INTEGER PRIMARY KEY ASC,
             username TEXT,
             digesta1 TEXT,
+            role INTEGER DEFAULT 1,
             UNIQUE(username)
         );
     ');
 
     $adminHash = HashFactory::createHashAlgorithm()->hash('admin');
-    $pdo->exec('INSERT INTO users (username, digesta1) VALUES ("admin", "' . $adminHash . '");');
+    $pdo->exec('INSERT INTO users (username, digesta1, role) VALUES ("admin", "' . $adminHash . '", 0);');
     $pdo->exec('INSERT INTO principals (uri, displayname) VALUES ("principals/admin", "admin");');
     $pdo->exec('INSERT INTO principals (uri) VALUES ("principals/admin/calendar-proxy-read");');
     $pdo->exec('INSERT INTO principals (uri) VALUES ("principals/admin/calendar-proxy-write");');
