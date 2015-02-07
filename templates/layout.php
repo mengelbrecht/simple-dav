@@ -43,7 +43,7 @@
         </div>
     </div>
 </nav>
-<div class="container">
+<div class="container content">
     <?= $content_for_layout ?>
 </div>
 <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
