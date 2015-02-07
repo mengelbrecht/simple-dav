@@ -32,9 +32,6 @@
                 <li <?= isset($page) && $page === "users" ? 'class="active"' : '' ?>>
                     <a href="?action=users"><i class="fa fa-users"></i> Manage Users</a>
                 </li>
-                <li <?= isset($page) && $page === "statistics" ? 'class="active"' : '' ?>>
-                    <a href="?action=statistics"><i class="fa fa-bar-chart"></i> Statistics</a>
-                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="navbar-text">Signed in as <?= SimpleDAV\Utils::escape($username) ?></li>
