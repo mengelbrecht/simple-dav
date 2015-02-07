@@ -13,5 +13,7 @@ Router\get_action('overview', function() {
         'page' => 'overview',
         'username' => User::loggedIn(),
         'isAdmin' => User::isAdmin(),
+        'calendars' => User::getCalendars(),
+        'addressBooks' => User::getAddressBooks()
     ]));
 });

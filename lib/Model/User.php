@@ -66,4 +66,31 @@ class User {
     public static function getUsers() {
         return Database::get('db')->table('users')->asc('username')->columns('username', 'role')->findAll();
     }
+
+    private static function getNameAndCount($categoryName, $categoryIDName, $objectName) {
+        $username = self::loggedIn();
+        if (!isset($username))
+            return [];
+
+        $objects = Database::get('db')->table($categoryName)->equals('principaluri', "principals/$username")->
+            columns('id', 'displayname')->findAll();
+
+        $map = [];
+        foreach ($objects as $object) {
+            $id = $object['id'];
+            $name = $object['displayname'];
+            $count = Database::get('db')->table($objectName)->equals($categoryIDName, $id)->count();
+            $map[$name] = $count;
+        }
+
+        return $map;
+    }
+
+    public static function getCalendars() {
+        return self::getNameAndCount('calendars', 'calendarid', 'calendarobjects');
+    }
+
+    public static function getAddressBooks() {
+        return self::getNameAndCount('addressbooks', 'addressbookid', 'cards');
+    }
 }
