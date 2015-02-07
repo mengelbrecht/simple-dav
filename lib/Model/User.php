@@ -62,4 +62,8 @@ class User {
             'transparent' => '0'
         ]);
     }
+
+    public static function getUsers() {
+        return Database::get('db')->table('users')->asc('username')->columns('username', 'role')->findAll();
+    }
 }
