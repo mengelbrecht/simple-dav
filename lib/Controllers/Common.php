@@ -5,6 +5,7 @@ namespace SimpleDAV\Controllers;
 use PicoFarad\Response;
 use PicoFarad\Router;
 use PicoFarad\Session;
+use PicoFarad\Template;
 use SimpleDAV\Model\User;
 
 
@@ -16,6 +17,16 @@ Router\before(function ($action) {
     if (!isset($loggedIn) && $action !== 'login') {
         User::logout();
         Response\redirect('?action=login');
+    }
+
+    $adminActions = ['users', 'adduser'];
+    if (!User::isAdmin() && in_array($action, $adminActions)) {
+        Response\html(Template\layout('error', [
+            'page' => '',
+            'username' => User::loggedIn(),
+            'isAdmin' => false,
+            'error' => "Permission denied"
+        ]));
     }
 
     Response\csp([

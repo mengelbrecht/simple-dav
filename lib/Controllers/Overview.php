@@ -11,6 +11,7 @@ use SimpleDAV\Model\User;
 Router\get_action('overview', function() {
     Response\html(Template\layout('overview', [
         'page' => 'overview',
-        'username' => User::loggedIn()
+        'username' => User::loggedIn(),
+        'isAdmin' => User::isAdmin(),
     ]));
 });

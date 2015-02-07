@@ -17,6 +17,14 @@ class User {
         return empty($_SESSION['loggedin']) ? null : $_SESSION['loggedin'];
     }
 
+    public static function isAdmin() {
+        $username = self::loggedIn();
+        if (!isset($username))
+            return false;
+
+        return Database::get('db')->table('users')->equals('username', $username)->findOneColumn('role') == Role::Admin;
+    }
+
     public static function logout() {
         Session\close();
     }
