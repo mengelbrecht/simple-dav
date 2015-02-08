@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteRule .* - [env=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+Redirect /.well-known/carddav /server.php/
+Redirect /.well-known/caldav /server.php/
