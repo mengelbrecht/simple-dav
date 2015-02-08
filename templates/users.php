@@ -1,6 +1,6 @@
 <ul class="list-group">
     <li class="list-group-item active">
-        Users
+        <i class="fa fa-users"></i> Users
     </li>
     <li class="list-group-item">
         <a href="?action=adduser"><i class="fa fa-user-plus"></i> Create...</a>
