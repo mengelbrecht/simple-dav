@@ -26,7 +26,7 @@ Router\before(function ($action) {
             'username' => User::loggedIn(),
             'isAdmin' => false,
             'error' => "Permission denied"
-        ]));
+        ]), 403);
     }
 
     Response\csp([
