@@ -36,13 +36,15 @@
 <?php endif ?>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="navbar-text">Signed in as <?= SimpleDAV\Utils::escape($username) ?></li>
+                <li class="navbar-text">Signed in as <?= \SimpleDAV\Utils::escape($username) ?></li>
                 <li><a href="?action=logout"><i class="fa fa-sign-out"></i> Logout</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <div class="container content">
+<?= \SimpleDAV\Utils::flashIfSet('<div class="alert alert-success">%s</div>') ?>
+<?= \SimpleDAV\Utils::flashErrorIfSet('<div class="alert alert-danger">%s</div>') ?>
 <?= $content_for_layout ?>
 </div>
 <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
