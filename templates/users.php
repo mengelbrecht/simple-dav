@@ -3,7 +3,7 @@
         <i class="fa fa-users"></i> Users
     </li>
     <li class="list-group-item">
-        <a href="?action=adduser"><i class="fa fa-user-plus"></i> Create...</a>
+        <a href="?action=add-user"><i class="fa fa-user-plus"></i> Create...</a>
     </li>
 <?php foreach ($users as $user): ?>
     <li class="list-group-item">

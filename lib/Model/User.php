@@ -61,6 +61,7 @@ class User {
             'synctoken' => '1',
             'transparent' => '0'
         ]);
+        return true;
     }
 
     public static function getUsers() {
