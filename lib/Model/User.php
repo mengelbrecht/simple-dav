@@ -5,13 +5,6 @@ namespace SimpleDAV\Model;
 use PicoDb\Database;
 use PicoFarad\Session;
 
-abstract class Role {
-
-    const Admin = 0;
-    const Regular = 1;
-
-}
-
 class User {
 
     public static function loggedIn() {
