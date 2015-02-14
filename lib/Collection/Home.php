@@ -22,7 +22,7 @@ class Home extends Collection {
             return [];
         }
 
-        $userPath = $this->homePath . '/' . $user;
+        $userPath = $this->homePath . \DIRECTORY_SEPARATOR . $user;
 
         if (!file_exists($userPath)) {
             \mkdir($userPath, 0700, true);
