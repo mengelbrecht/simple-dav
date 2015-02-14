@@ -5,27 +5,28 @@ namespace SimpleDAV;
 class CSRFToken {
 
     const TIMEOUT = 1200; // 20 Minutes
+    const ID = 'csrf';
 
     private static function clearExpired() {
-        if (!isset($_SESSION['csrf'])) {
+        if (!isset($_SESSION[self::ID])) {
             return;
         }
 
         $expiration = \time() - self::TIMEOUT;
-        foreach ($_SESSION['csrf'] as $token => $time) {
+        foreach ($_SESSION[self::ID] as $token => $time) {
             if ($time < $expiration) {
-                unset($_SESSION['csrf'][$token]);
+                unset($_SESSION[self::ID][$token]);
             }
         }
     }
 
     public static function generate() {
-        if (empty($_SESSION['csrf'])) {
-            $_SESSION['csrf'] = [];
+        if (empty($_SESSION[self::ID])) {
+            $_SESSION[self::ID] = [];
         }
 
         $token = \hash('sha256', \mcrypt_create_iv(16, \MCRYPT_DEV_URANDOM));
-        $_SESSION['csrf'][$token] = \time();
+        $_SESSION[self::ID][$token] = \time();
         return $token;
     }
 
@@ -37,7 +38,7 @@ class CSRFToken {
         }
 
         $expiration = time() - self::TIMEOUT;
-        return isset($_SESSION['csrf'][$token]) && $_SESSION['csrf'][$token] >= $expiration;
+        return isset($_SESSION[self::ID][$token]) && $_SESSION[self::ID][$token] >= $expiration;
     }
 
 }

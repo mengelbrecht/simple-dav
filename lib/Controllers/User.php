@@ -24,7 +24,7 @@ Router\get_action('login', function () {
     Response\html(Template\load('signin', [
         'error' => null,
         'values' => [
-            'csrf' => CSRFToken::generate(),
+            CSRFToken::ID => CSRFToken::generate(),
             'username' => '',
             'password' => ''
         ]
@@ -34,10 +34,10 @@ Router\get_action('login', function () {
 Router\post_action('login', function () {
 
     $values = Request\values();
-    if (!CSRFToken::check($values['csrf'])) {
+    if (!CSRFToken::check($values[CSRFToken::ID])) {
         Response\html(Template\load('signin', [
             'error' => 'Invalid session or timeout.',
-            'values' => $values + ['csrf' => CSRFToken::generate()],
+            'values' => $values + [CSRFToken::ID => CSRFToken::generate()],
         ]));
     }
 
