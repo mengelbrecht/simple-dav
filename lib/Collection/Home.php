@@ -24,7 +24,7 @@ class Home extends Collection {
 
         $userPath = $this->homePath . \DIRECTORY_SEPARATOR . $user;
 
-        if (!file_exists($userPath)) {
+        if (!\file_exists($userPath)) {
             \mkdir($userPath, 0700, true);
         }
 

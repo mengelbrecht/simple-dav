@@ -8,7 +8,6 @@ use PicoFarad\Session;
 use PicoFarad\Template;
 use SimpleDAV\Model\User;
 
-
 Router\before(function ($action) {
 
     Session\open(BASE_DIRECTORY, '', 0);
