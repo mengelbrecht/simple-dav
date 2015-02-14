@@ -10,7 +10,6 @@ use SimpleDAV\CSRFToken;
 use SimpleDAV\Model\User;
 use SimpleDAV\Hash\HashFactory;
 
-
 Router\get_action('logout', function () {
     User::logout();
     Response\redirect('?action=login');
@@ -18,8 +17,9 @@ Router\get_action('logout', function () {
 
 Router\get_action('login', function () {
 
-    if (User::loggedIn())
+    if (User::loggedIn()) {
         Response\redirect('?action=overview');
+    }
 
     Response\html(Template\load('signin', [
         'error' => null,

@@ -10,7 +10,6 @@ use PicoFarad\Template;
 use SimpleDAV\Hash\HashFactory;
 use SimpleDAV\Model\User;
 
-
 Router\get_action('users', function() {
     Response\html(Template\layout('users', [
         'page' => 'users',
@@ -32,10 +31,11 @@ Router\post_action('add-user', function () {
 
     $values = Request\values();
     $hash = HashFactory::createHashAlgorithm()->hash($values['password']);
-    if (User::create($values['username'], $hash))
+    if (User::create($values['username'], $hash)) {
         Session\flash('User created successfully.');
-    else
+    } else {
         Session\flash_error('Unable to create user.');
+    }
 
     Response\redirect('?action=users');
 });

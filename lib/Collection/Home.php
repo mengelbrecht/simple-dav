@@ -18,13 +18,15 @@ class Home extends Collection {
 
     function getChildren() {
         $user = $this->authPlugin->getCurrentUser();
-        if (!isset($user))
+        if (!isset($user)) {
             return [];
+        }
 
         $userPath = $this->homePath . '/' . $user;
 
-        if (!file_exists($userPath))
+        if (!file_exists($userPath)) {
             mkdir($userPath, 0700, true);
+        }
 
         return [new FS\Directory($userPath)];
     }
@@ -32,4 +34,5 @@ class Home extends Collection {
     function getName() {
         return 'home';
     }
+
 }

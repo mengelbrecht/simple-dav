@@ -5,10 +5,11 @@ namespace SimpleDAV\Model;
 use PicoDb\Database;
 use PicoFarad\Session;
 
-
 abstract class Role {
+
     const Admin = 0;
     const Regular = 1;
+
 }
 
 class User {
@@ -19,8 +20,9 @@ class User {
 
     public static function isAdmin() {
         $username = self::loggedIn();
-        if (!isset($username))
+        if (!isset($username)) {
             return false;
+        }
 
         return Database::get('db')->table('users')->equals('username', $username)->findOneColumn('role') == Role::Admin;
     }
@@ -70,11 +72,12 @@ class User {
 
     private static function getNameAndCount($categoryName, $categoryIDName, $objectName) {
         $username = self::loggedIn();
-        if (!isset($username))
+        if (!isset($username)) {
             return [];
+        }
 
         $objects = Database::get('db')->table($categoryName)->equals('principaluri', "principals/$username")->
-            columns('id', 'displayname')->findAll();
+                columns('id', 'displayname')->findAll();
 
         $map = [];
         foreach ($objects as $object) {
@@ -94,4 +97,5 @@ class User {
     public static function getAddressBooks() {
         return self::getNameAndCount('addressbooks', 'addressbookid', 'cards');
     }
+
 }
