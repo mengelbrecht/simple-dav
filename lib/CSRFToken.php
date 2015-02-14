@@ -4,14 +4,14 @@ namespace SimpleDAV;
 
 class CSRFToken {
 
-    const Timeout = 1200; // 20 Minutes
+    const TIMEOUT = 1200; // 20 Minutes
 
     private static function clearExpired() {
         if (!isset($_SESSION['csrf'])) {
             return;
         }
 
-        $expiration = \time() - self::Timeout;
+        $expiration = \time() - self::TIMEOUT;
         foreach ($_SESSION['csrf'] as $token => $time) {
             if ($time < $expiration) {
                 unset($_SESSION['csrf'][$token]);
@@ -36,7 +36,7 @@ class CSRFToken {
             return false;
         }
 
-        $expiration = time() - self::Timeout;
+        $expiration = time() - self::TIMEOUT;
         return isset($_SESSION['csrf'][$token]) && $_SESSION['csrf'][$token] >= $expiration;
     }
 
