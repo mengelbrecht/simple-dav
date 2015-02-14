@@ -6,11 +6,13 @@ if (file_exists(__DIR__ . '/config.php'))
     require_once __DIR__ . '/config.php';
 
 // Set default configuration
-define('BASE_DIRECTORY', call_user_func (function () {
-    $d = $_SERVER['PHP_SELF'];
-    while (strrpos($d, '.php')) $d = dirname($d);
-    return $d;
-}));
+define('BASE_DIRECTORY', call_user_func(function () {
+        $d = filter_input(INPUT_SERVER, 'PHP_SELF', FILTER_SANITIZE_URL);
+        while (strrpos($d, '.php')) {
+            $d = \dirname($d);
+        }
+        return $d;
+    }));
 define('ROOT_DIRECTORY', __DIR__);
 define('DATA_DIRECTORY', ROOT_DIRECTORY . DIRECTORY_SEPARATOR . 'data');
 define('WEBDAV_DIRECTORY', DATA_DIRECTORY . DIRECTORY_SEPARATOR . 'files');
