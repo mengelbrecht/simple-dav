@@ -11,7 +11,7 @@ class CSRFToken {
             return;
         }
 
-        $expiration = time() - self::Timeout;
+        $expiration = \time() - self::Timeout;
         foreach ($_SESSION['csrf'] as $token => $time) {
             if ($time < $expiration) {
                 unset($_SESSION['csrf'][$token]);
@@ -24,8 +24,8 @@ class CSRFToken {
             $_SESSION['csrf'] = [];
         }
 
-        $token = hash('sha256', mcrypt_create_iv(16, MCRYPT_DEV_URANDOM));
-        $_SESSION['csrf'][$token] = time();
+        $token = \hash('sha256', \mcrypt_create_iv(16, \MCRYPT_DEV_URANDOM));
+        $_SESSION['csrf'][$token] = \time();
         return $token;
     }
 

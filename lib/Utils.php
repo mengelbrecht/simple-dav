@@ -5,7 +5,7 @@ namespace SimpleDAV;
 class Utils {
 
     public static function escape($data) {
-        return htmlspecialchars($data, ENT_QUOTES, 'UTF-8', false);
+        return \htmlspecialchars($data, \ENT_QUOTES, 'UTF-8', false);
     }
 
     public static function flashIfSet($html) {
@@ -13,7 +13,7 @@ class Utils {
             return '';
         }
 
-        $flash = sprintf($html, self::escape($_SESSION['flash_message']));
+        $flash = \sprintf($html, self::escape($_SESSION['flash_message']));
         unset($_SESSION['flash_message']);
         return $flash;
     }
@@ -23,7 +23,7 @@ class Utils {
             return '';
         }
 
-        $flash = sprintf($html, self::escape($_SESSION['flash_error_message']));
+        $flash = \sprintf($html, self::escape($_SESSION['flash_error_message']));
         unset($_SESSION['flash_error_message']);
         return $flash;
     }

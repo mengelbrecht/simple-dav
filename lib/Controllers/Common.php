@@ -20,7 +20,7 @@ Router\before(function ($action) {
     }
 
     $adminActions = ['users', 'add-user'];
-    if (!User::isAdmin() && in_array($action, $adminActions)) {
+    if (!User::isAdmin() && \in_array($action, $adminActions)) {
         Response\html(Template\layout('error', [
             'page' => '',
             'username' => User::loggedIn(),

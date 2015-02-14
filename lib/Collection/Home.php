@@ -25,7 +25,7 @@ class Home extends Collection {
         $userPath = $this->homePath . '/' . $user;
 
         if (!file_exists($userPath)) {
-            mkdir($userPath, 0700, true);
+            \mkdir($userPath, 0700, true);
         }
 
         return [new FS\Directory($userPath)];

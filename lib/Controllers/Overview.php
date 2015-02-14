@@ -7,7 +7,6 @@ use PicoFarad\Router;
 use PicoFarad\Template;
 use SimpleDAV\Model\User;
 
-
 Router\get_action('overview', function() {
     Response\html(Template\layout('overview', [
         'page' => 'overview',
