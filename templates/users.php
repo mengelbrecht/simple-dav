@@ -10,9 +10,9 @@
         <div class="row">
             <div class="col-md-5"><?= SimpleDAV\Utils::escape($user['username']) ?></div>
             <div class="col-md-3">
-<?php if ($user['role'] == SimpleDAV\Model\Role::Admin): ?>
+<?php if ($user['role'] == SimpleDAV\Model\Role::ADMIN): ?>
                 <span class="label label-success">admin</span>
-<?php elseif ($user['role'] == SimpleDAV\Model\Role::Regular): ?>
+<?php elseif ($user['role'] == SimpleDAV\Model\Role::REGULAR): ?>
                 <span class="label label-warning">regular</span>
 <?php endif ?>
             </div>

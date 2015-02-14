@@ -17,7 +17,7 @@ class User {
             return false;
         }
 
-        return Database::get('db')->table('users')->equals('username', $username)->findOneColumn('role') == Role::Admin;
+        return Database::get('db')->table('users')->equals('username', $username)->findOneColumn('role') == Role::ADMIN;
     }
 
     public static function logout() {

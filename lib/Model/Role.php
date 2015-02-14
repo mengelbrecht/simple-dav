@@ -4,7 +4,7 @@ namespace SimpleDAV\Model;
 
 abstract class Role {
 
-    const Admin = 0;
-    const Regular = 1;
+    const ADMIN = 0;
+    const REGULAR = 1;
 
 }
