@@ -16,7 +16,7 @@
         <input type="hidden" name="csrf" id="form-csrf" value="<?= $values[SimpleDAV\CSRFToken::ID] ?>"/>
         <h2 class="form-signin-heading">Please sign in</h2>
         <div class="form-group">
-            <input type="text" name="username" id=username" class="form-control" placeholder="Username" value="<?= SimpleDAV\Utils::escape($values['username']) ?>" required <?= isset($error) ? "" : "autofocus"?>>
+            <input type="text" name="username" id="username" class="form-control" placeholder="Username" value="<?= SimpleDAV\Utils::escape($values['username']) ?>" required <?= isset($error) ? "" : "autofocus"?>>
         </div>
         <div class="form-group <?= isset($error) ? "has-error has-feedback" : ""?>">
             <input class="form-control <?= isset($error) ? 'input-padding-right' : '' ?>" name="password" type="password" placeholder="Password" value="<?= isset($error) ? "" : SimpleDAV\Utils::escape($values['password']) ?>" required  <?= isset($error) ? "autofocus" : "" ?>>
