@@ -47,7 +47,7 @@ PicoDb\Database::bootstrap('db', function () {
 
     $db->getConnection()->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
-    if ($db->schema()->check(Schema\Version)) {
+    if ($db->schema()->check(Schema\VERSION)) {
         return $db;
     } else {
         die('Unable to migrate database schema.');

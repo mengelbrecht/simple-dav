@@ -4,7 +4,7 @@ namespace Schema;
 
 use SimpleDAV\Hash\HashFactory;
 
-const Version = 1;
+const VERSION = 1;
 
 function version_1(\PDO $pdo) {
     $pdo->exec('
