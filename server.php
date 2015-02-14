@@ -6,20 +6,20 @@ date_default_timezone_set('UTC');
 
 /** Map PHP errors to exceptions to send a proper response back to the client (HTTP/1.1 500). */
 function exception_error_handler($errno, $errstr, $errfile, $errline) {
-    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+    throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
 }
 
-set_error_handler('exception_error_handler');
+\set_error_handler('exception_error_handler');
 
-$pdo = PicoDb\Database::get('db')->getConnection();
+$pdo = \PicoDb\Database::get('db')->getConnection();
 
 $principalBackend = new \Sabre\DAVACL\PrincipalBackend\PDO($pdo);
 $cardDAVBackend = new \Sabre\CardDAV\Backend\PDO($pdo);
 $calDAVBackend = new \Sabre\CalDAV\Backend\PDO($pdo);
 $lockBackend = new \Sabre\DAV\Locks\Backend\File(LOCKDB_FILE);
-$storageBackend = new Sabre\DAV\PropertyStorage\Backend\PDO($pdo);
+$storageBackend = new \Sabre\DAV\PropertyStorage\Backend\PDO($pdo);
 
-$authPlugin = new Sabre\DAV\Auth\Plugin(new \SimpleDAV\Auth\PDOAuth(), 'SimpleDAV');
+$authPlugin = new \Sabre\DAV\Auth\Plugin(new \SimpleDAV\Auth\PDOAuth(), 'SimpleDAV');
 
 /** Top level directories of the WebDAV server. */
 $nodes = [
@@ -30,7 +30,7 @@ $nodes = [
 ];
 
 $server = new \Sabre\DAV\Server($nodes);
-$server->setBaseUri(BASE_DIRECTORY . DIRECTORY_SEPARATOR . basename(__FILE__));
+$server->setBaseUri(BASE_DIRECTORY . \DIRECTORY_SEPARATOR . \basename(__FILE__));
 $server->addPlugin($authPlugin);
 $server->addPlugin(new \Sabre\DAVACL\Plugin());
 $server->addPlugin(new \Sabre\CalDAV\Plugin());
