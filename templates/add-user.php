@@ -18,11 +18,22 @@
         </div>
     </div>
     <div class="form-group">
-        <div class="col-sm-offset-3 col-sm-3">
+        <div class="col-sm-offset-3 col-sm-5">
+            <select name="role" class="form-control">
+<?php foreach ($roles as $role): ?>
+                <option><?= \SimpleDAV\Utils::escape($role) ?></option>
+<?php endforeach ?>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-5">
             <button type="submit" class="btn btn-success btn-sm">Create</button>
         </div>
-        <div class="col-sm-offset-1 col-sm-5">
-            <a href="?action=users" class="btn btn-danger btn-sm">Cancel</a>
+        <div class="col-sm-offset-1 col-sm-3">
+            <span class="pull-right">
+                <a href="?action=users" class="btn btn-danger btn-sm">Cancel</a>
+            </span>
         </div>
     </div>
 </form>

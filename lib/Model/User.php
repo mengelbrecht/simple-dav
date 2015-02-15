@@ -76,14 +76,18 @@ class User {
         ]);
     }
 
-    public static function create($username, $password, $email = '') {
+    public static function create($username, $password, $email = '', $role = Role::REGULAR) {
         if (self::exists($username)) {
             return false;
         }
 
         $db = Database::get('db');
         $hash = HashFactory::createHashAlgorithm()->hash($password);
-        $db->table('users')->insert(['username' => $username, 'digesta1' => $hash]);
+        $db->table('users')->insert([
+            'username' => $username,
+            'digesta1' => $hash,
+            'role' => $role
+        ]);
         self::createPrincipal($username, $email);
         self::createAddressBook($username);
         self::createCalendar($username);
