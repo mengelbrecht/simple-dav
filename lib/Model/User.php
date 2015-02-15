@@ -17,6 +17,11 @@ class User {
         return empty($_SESSION['loggedin']) ? null : $_SESSION['loggedin'];
     }
 
+    public static function principalUri() {
+        $username = self::loggedIn();
+        return isset($username) ? "principals/$username" : null;
+    }
+
     public static function isAdmin() {
         $username = self::loggedIn();
         if (!isset($username)) {
@@ -99,12 +104,12 @@ class User {
     }
 
     private static function getNameAndCount($categoryName, $categoryIDName, $objectName) {
-        $username = self::loggedIn();
-        if (!isset($username)) {
+        $principalUri = self::principalUri();
+        if (!isset($principalUri)) {
             return [];
         }
 
-        $objects = Database::get('db')->table($categoryName)->equals('principaluri', "principals/$username")->
+        $objects = Database::get('db')->table($categoryName)->equals('principaluri', $principalUri)->
                 columns('id', 'displayname')->findAll();
 
         $map = [];
@@ -112,7 +117,7 @@ class User {
             $id = $object['id'];
             $name = $object['displayname'];
             $count = Database::get('db')->table($objectName)->equals($categoryIDName, $id)->count();
-            $map[$name] = $count;
+            $map[] = ['id' => $id, 'name' => $name, 'count' => $count];
         }
 
         return $map;
@@ -150,18 +155,31 @@ class User {
 
     private static function deleteAddressBooks($db, $principalUri) {
         $addressBookIDs = $db->table('addressbooks')->equals('principaluri', $principalUri)->findAllByColumn('id');
+        if (empty($addressBookIDs)) {
+            return;
+        }
         $db->table('cards')->in('addressbookid', $addressBookIDs)->remove();
         $db->table('addressbookchanges')->in('addressbookid', $addressBookIDs)->remove();
         $db->table('addressbooks')->equals('principaluri', $principalUri)->remove();
     }
 
+    public static function deleteCalendarByIDs($principalUri, array $calendarIDs) {
+        $db = Database::get('db');
+        $allowedIDs = $db->table('calendars')->equals('principaluri', $principalUri)->findAllByColumn('id');
+        $ids = \array_intersect($calendarIDs, $allowedIDs);
+        if (empty($ids)) {
+            return true;
+        }
+        $db->table('calendars')->in('id', $ids)->remove();
+        $db->table('calendarobjects')->in('calendarid', $ids)->remove();
+        $db->table('calendarchanges')->in('calendarid', $ids)->remove();
+        return true;
+    }
+
     private static function deleteCalendars($db, $principalUri) {
         $calendarIDs = $db->table('calendars')->equals('principaluri', $principalUri)->findAllByColumn('id');
-        $db->table('calendarobjects')->in('calendarid', $calendarIDs)->remove();
-        $db->table('calendarchanges')->in('calendarid', $calendarIDs)->remove();
-        $db->table('calendars')->equals('principaluri', $principalUri)->remove();
+        self::deleteCalendarByIDs($principalUri, $calendarIDs);
         $db->table('calendarsubscriptions')->equals('principaluri', $principalUri)->remove();
-
     }
 
     private static function deleteSchedulingData($db, $principalUri) {
@@ -180,6 +198,14 @@ class User {
         $db->table('principals')->equals('uri', $principalUri)->remove();
         $db->table('principals')->equals('uri', "$principalUri/calendar-proxy-read")->remove();
         $db->table('principals')->equals('uri', "$principalUri/calendar-proxy-write")->remove();
+    }
+
+    public static function getCalendarForID($calendarID) {
+        $principalUri = self::principalUri();
+        if (!isset($principalUri)) {
+            return null;
+        }
+        return Database::get('db')->table('calendars')->equals('principaluri', $principalUri)->equals('id', $calendarID)->findOneColumn('displayname');
     }
 
 }

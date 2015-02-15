@@ -17,7 +17,14 @@ Router\before(function ($action) {
         Response\redirect('?action=login');
     }
 
-    $adminActions = ['users', 'add-user', 'confirm-delete-user', 'delete-user'];
+    $adminActions = [
+        'users',
+        'add-user',
+        'confirm-delete-user',
+        'delete-user',
+        'confirm-delete-calendar',
+        'delete-calendar'
+    ];
     if (!User::isAdmin() && \in_array($action, $adminActions)) {
         Session\flash_error('Permission denied.');
         Response\redirect('?action=overview');
