@@ -36,6 +36,35 @@ class User {
         Database::get('db')->table('users')->equals('username', $username)->save(['digesta1' => $hash]);
     }
 
+    private static function createPrincipal($username) {
+        $db = Database::get('db');
+        $db->table('principals')->insert(['uri' => "principals/$username/calendar-proxy-read"]);
+        $db->table('principals')->insert(['uri' => "principals/$username/calendar-proxy-write"]);
+    }
+
+    private static function createAddressBook($username, $addressBook = 'Contacts') {
+        $db = Database::get('db');
+        $db->table('addressbooks')->insert([
+            'principaluri' => "principals/$username",
+            'displayname' => $addressBook,
+            'uri' => 'default',
+            'description' => '',
+            'synctoken' => '1'
+        ]);
+    }
+
+    private static function createCalendar($username, $calendarName = 'Calendar') {
+        $db = Database::get('db');
+        $db->table('calendars')->insert([
+            'principaluri' => "principals/$username",
+            'displayname' => $calendarName,
+            'uri' => 'default',
+            'components' => 'VEVENT,VTODO',
+            'synctoken' => '1',
+            'transparent' => '0'
+        ]);
+    }
+
     public static function create($username, $hash) {
         if (self::exists($username)) {
             return false;
@@ -43,23 +72,9 @@ class User {
 
         $db = Database::get('db');
         $db->table('users')->insert(['username' => $username, 'digesta1' => $hash]);
-        $db->table('principals')->insert(['uri' => "principals/$username/calendar-proxy-read"]);
-        $db->table('principals')->insert(['uri' => "principals/$username/calendar-proxy-write"]);
-        $db->table('addressbooks')->insert([
-            'principaluri' => "principals/$username",
-            'displayname' => 'Contacts',
-            'uri' => 'default',
-            'description' => '',
-            'synctoken' => '1'
-        ]);
-        $db->table('calendars')->insert([
-            'principaluri' => "principals/$username",
-            'displayname' => 'Contacts',
-            'uri' => 'default',
-            'components' => 'VEVENT,VTODO',
-            'synctoken' => '1',
-            'transparent' => '0'
-        ]);
+        self::createPrincipal($username);
+        self::createAddressBook($username);
+        self::createCalendar($username);
         return true;
     }
 
