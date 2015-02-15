@@ -20,12 +20,8 @@ Router\before(function ($action) {
 
     $adminActions = ['users', 'add-user'];
     if (!User::isAdmin() && \in_array($action, $adminActions)) {
-        Response\html(Template\layout('error', [
-            'page' => '',
-            'username' => User::loggedIn(),
-            'isAdmin' => false,
-            'error' => "Permission denied"
-        ]), 403);
+        Session\flash_error('Permission denied.');
+        Response\redirect('?action=overview');
     }
 
     Response\csp([
