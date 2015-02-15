@@ -4,8 +4,14 @@ namespace SimpleDAV\Model;
 
 use PicoDb\Database;
 use PicoFarad\Session;
+use SimpleDAV\Hash\HashFactory;
 
 class User {
+
+    public static function validate($username, $password) {
+        $hash = self::getHash($username);
+        return isset($hash) && HashFactory::createHashAlgorithm()->verify($password, $hash);
+    }
 
     public static function loggedIn() {
         return empty($_SESSION['loggedin']) ? null : $_SESSION['loggedin'];
