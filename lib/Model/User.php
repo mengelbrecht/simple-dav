@@ -37,6 +37,10 @@ class User {
     }
 
     public static function create($username, $hash) {
+        if (self::exists($username)) {
+            return false;
+        }
+
         $db = Database::get('db');
         $db->table('users')->insert(['username' => $username, 'digesta1' => $hash]);
         $db->table('principals')->insert(['uri' => "principals/$username/calendar-proxy-read"]);
