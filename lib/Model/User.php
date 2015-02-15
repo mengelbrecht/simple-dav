@@ -95,7 +95,7 @@ class User {
     }
 
     public static function getUsers() {
-        return Database::get('db')->table('users')->asc('username')->columns('username', 'role')->findAll();
+        return Database::get('db')->table('users')->asc('username')->columns('id', 'username', 'role')->findAll();
     }
 
     private static function getNameAndCount($categoryName, $categoryIDName, $objectName) {
@@ -124,6 +124,62 @@ class User {
 
     public static function getAddressBooks() {
         return self::getNameAndCount('addressbooks', 'addressbookid', 'cards');
+    }
+
+    public static function getNameForUserID($userID) {
+        return Database::get('db')->table('users')->equals('id', $userID)->findOneColumn('username');
+    }
+
+    public static function delete($userID) {
+        $username = self::getNameForUserID($userID);
+        if (!isset($username)) {
+            return false;
+        }
+
+        $db = Database::get('db');
+        $principalUri = "principals/$username";
+        self::deleteAddressBooks($db, $principalUri);
+        self::deleteCalendars($db, $principalUri);
+        self::deleteSchedulingData($db, $principalUri);
+        self::deleteLocks($db, $principalUri);
+        self::deletePropertyStorage($db, $principalUri);
+        self::deletePrincipal($db, $principalUri);
+        $db->table('users')->equals('id', $userID)->remove();
+        return true;
+    }
+
+    private static function deleteAddressBooks($db, $principalUri) {
+        $addressBookIDs = $db->table('addressbooks')->equals('principaluri', $principalUri)->findAllByColumn('id');
+        $db->table('cards')->in('addressbookid', $addressBookIDs)->remove();
+        $db->table('addressbookchanges')->in('addressbookid', $addressBookIDs)->remove();
+        $db->table('addressbooks')->equals('principaluri', $principalUri)->remove();
+    }
+
+    private static function deleteCalendars($db, $principalUri) {
+        $calendarIDs = $db->table('calendars')->equals('principaluri', $principalUri)->findAllByColumn('id');
+        $db->table('calendarobjects')->in('calendarid', $calendarIDs)->remove();
+        $db->table('calendarchanges')->in('calendarid', $calendarIDs)->remove();
+        $db->table('calendars')->equals('principaluri', $principalUri)->remove();
+        $db->table('calendarsubscriptions')->equals('principaluri', $principalUri)->remove();
+
+    }
+
+    private static function deleteSchedulingData($db, $principalUri) {
+        $db->table('schedulingobjects')->equals('principaluri', $principalUri)->remove();
+    }
+
+    private static function deleteLocks($db, $principalUri) {
+        // TODO
+    }
+
+    private static function deletePropertyStorage($db, $principalUri) {
+        // TODO
+    }
+
+    private static function deletePrincipal($db, $principalUri) {
+        $db->table('principals')->equals('uri', $principalUri)->remove();
+        $db->table('principals')->equals('uri', "$principalUri/calendar-proxy-read")->remove();
+        $db->table('principals')->equals('uri', "$principalUri/calendar-proxy-write")->remove();
     }
 
 }

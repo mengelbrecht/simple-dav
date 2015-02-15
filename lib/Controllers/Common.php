@@ -5,7 +5,6 @@ namespace SimpleDAV\Controllers;
 use PicoFarad\Response;
 use PicoFarad\Router;
 use PicoFarad\Session;
-use PicoFarad\Template;
 use SimpleDAV\Model\User;
 
 Router\before(function ($action) {
@@ -18,7 +17,7 @@ Router\before(function ($action) {
         Response\redirect('?action=login');
     }
 
-    $adminActions = ['users', 'add-user'];
+    $adminActions = ['users', 'add-user', 'confirm-delete-user', 'delete-user'];
     if (!User::isAdmin() && \in_array($action, $adminActions)) {
         Session\flash_error('Permission denied.');
         Response\redirect('?action=overview');

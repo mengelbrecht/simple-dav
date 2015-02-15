@@ -40,3 +40,45 @@ Router\post_action('add-user', function () {
 
     Response\redirect('?action=users');
 });
+
+Router\get_action('confirm-delete-user', function () {
+
+    $userID = Request\int_param('user_id');
+    $userToDelete = User::getNameForUserID($userID);
+
+    if (!isset($userToDelete)) {
+        Session\flash_error('User does not exist.');
+        Response\redirect('?action=users');
+    }
+
+    if ($userToDelete === User::loggedIn()) {
+        Session\flash_error('Cannot delete active user.');
+        Response\redirect('?action=users');
+    }
+
+    Response\html(Template\layout('confirm-delete-user', [
+        'page' => 'users',
+        'username' => User::loggedIn(),
+        'isAdmin' => User::isAdmin(),
+        'userToDelete' => $userToDelete,
+        'userID' => $userID
+    ]));
+});
+
+Router\get_action('delete-user', function () {
+
+    $userID = Request\int_param('user_id');
+    $userToDelete = User::getNameForUserID($userID);
+    if ($userToDelete === User::loggedIn()) {
+        Session\flash_error('Cannot delete active user.');
+        Response\redirect('?action=users');
+    }
+
+    if (User::delete($userID)) {
+        Session\flash('User deleted successfully.');
+    } else {
+        Session\flash_error('Unable to delete user.');
+    }
+
+    Response\redirect('?action=users');
+});
