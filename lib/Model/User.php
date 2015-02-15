@@ -42,8 +42,13 @@ class User {
         Database::get('db')->table('users')->equals('username', $username)->save(['digesta1' => $hash]);
     }
 
-    private static function createPrincipal($username) {
+    private static function createPrincipal($username, $email) {
         $db = Database::get('db');
+        $db->table('principals')->insert([
+            'uri' => "principals/$username",
+            'displayname' => $username,
+            'email' => $email,
+        ]);
         $db->table('principals')->insert(['uri' => "principals/$username/calendar-proxy-read"]);
         $db->table('principals')->insert(['uri' => "principals/$username/calendar-proxy-write"]);
     }
@@ -71,14 +76,15 @@ class User {
         ]);
     }
 
-    public static function create($username, $hash) {
+    public static function create($username, $password, $email = '') {
         if (self::exists($username)) {
             return false;
         }
 
         $db = Database::get('db');
+        $hash = HashFactory::createHashAlgorithm()->hash($password);
         $db->table('users')->insert(['username' => $username, 'digesta1' => $hash]);
-        self::createPrincipal($username);
+        self::createPrincipal($username, $email);
         self::createAddressBook($username);
         self::createCalendar($username);
         return true;
