@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fguillot/picoDb.git",
-                "reference": "b3ef5f79e7e5e33729fdbf9c02c8a252a3d76b6b"
+                "reference": "88d9af320a4eee57691474b3ba9c84d6a882135c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fguillot/picoDb/zipball/b3ef5f79e7e5e33729fdbf9c02c8a252a3d76b6b",
-                "reference": "b3ef5f79e7e5e33729fdbf9c02c8a252a3d76b6b",
+                "url": "https://api.github.com/repos/fguillot/picoDb/zipball/88d9af320a4eee57691474b3ba9c84d6a882135c",
+                "reference": "88d9af320a4eee57691474b3ba9c84d6a882135c",
                 "shasum": ""
             },
             "require": {
@@ -41,7 +41,7 @@
             ],
             "description": "Minimalist database query builder",
             "homepage": "https://github.com/fguillot/picoDb",
-            "time": "2015-01-25 16:20:14"
+            "time": "2015-02-15 21:17:50"
         },
         {
             "name": "fguillot/picofarad",
@@ -82,16 +82,16 @@
         },
         {
             "name": "sabre/dav",
-            "version": "2.1.2",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fruux/sabre-dav.git",
-                "reference": "33b602b182445b41c480a5115884e62c2acccc7a"
+                "reference": "6a8aec204688d36681e0185fbaf1974b97e4a070"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fruux/sabre-dav/zipball/33b602b182445b41c480a5115884e62c2acccc7a",
-                "reference": "33b602b182445b41c480a5115884e62c2acccc7a",
+                "url": "https://api.github.com/repos/fruux/sabre-dav/zipball/6a8aec204688d36681e0185fbaf1974b97e4a070",
+                "reference": "6a8aec204688d36681e0185fbaf1974b97e4a070",
                 "shasum": ""
             },
             "require": {
@@ -107,7 +107,7 @@
                 "php": ">=5.4.1",
                 "sabre/event": "~2.0.0",
                 "sabre/http": "~3.0.0",
-                "sabre/vobject": "~3.3.4"
+                "sabre/vobject": "~3.3"
             },
             "require-dev": {
                 "evert/phpdoc-md": "~0.1.0",
@@ -152,7 +152,7 @@
                 "framework",
                 "iCalendar"
             ],
-            "time": "2014-12-10 21:51:51"
+            "time": "2015-02-25 18:13:20"
         },
         {
             "name": "sabre/event",
@@ -254,16 +254,16 @@
         },
         {
             "name": "sabre/vobject",
-            "version": "3.3.5",
+            "version": "3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fruux/sabre-vobject.git",
-                "reference": "77cb636a5bde4c19d7522c2c548b258859ddd1ef"
+                "reference": "0c90f60dae40137f1903c7b5915d3691c4fc99b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fruux/sabre-vobject/zipball/77cb636a5bde4c19d7522c2c548b258859ddd1ef",
-                "reference": "77cb636a5bde4c19d7522c2c548b258859ddd1ef",
+                "url": "https://api.github.com/repos/fruux/sabre-vobject/zipball/0c90f60dae40137f1903c7b5915d3691c4fc99b0",
+                "reference": "0c90f60dae40137f1903c7b5915d3691c4fc99b0",
                 "shasum": ""
             },
             "require": {
@@ -316,7 +316,7 @@
                 "jCard",
                 "vCard"
             ],
-            "time": "2015-01-10 00:54:52"
+            "time": "2015-02-25 17:47:50"
         }
     ],
     "packages-dev": [],
