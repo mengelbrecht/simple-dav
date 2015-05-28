@@ -26,7 +26,7 @@ $nodes = [
     new \Sabre\CalDAV\Principal\Collection($principalBackend),
     new \Sabre\CalDAV\CalendarRoot($principalBackend, $calDAVBackend),
     new \Sabre\CardDAV\AddressBookRoot($principalBackend, $cardDAVBackend),
-    new \SimpleDAV\Collection\Home($authPlugin, WEBDAV_DIRECTORY),
+    new \Sabre\DAVACL\FS\HomeCollection($principalBackend, WEBDAV_DIRECTORY),
 ];
 
 $server = new \Sabre\DAV\Server($nodes);

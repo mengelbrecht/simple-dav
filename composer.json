@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": ">=5.5.0",
-        "sabre/dav": "~2.1",
+        "sabre/dav": "3.0.0-beta2",
         "fguillot/picodb": "dev-master",
         "fguillot/picofarad": "dev-master"
     },

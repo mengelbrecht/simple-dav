@@ -136,7 +136,6 @@ function version_1(\PDO $pdo) {
             uri TEXT,
             email TEXT,
             displayname TEXT,
-            vcardurl TEXT,
             UNIQUE(uri)
         );
     ');
@@ -155,6 +154,7 @@ function version_1(\PDO $pdo) {
             id INTEGER PRIMARY KEY ASC,
             path TEXT,
             name TEXT,
+            valuetype INTEGER,
             value TEXT
         );
     ');
