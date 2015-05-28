@@ -34,10 +34,12 @@ $server->setBaseUri(BASE_DIRECTORY . \DIRECTORY_SEPARATOR . \basename(__FILE__))
 $server->addPlugin($authPlugin);
 $server->addPlugin(new \Sabre\DAVACL\Plugin());
 $server->addPlugin(new \Sabre\CalDAV\Plugin());
+$server->addPlugin(new \Sabre\CalDAV\ICSExportPlugin());
 $server->addPlugin(new \Sabre\CalDAV\Notifications\Plugin());
 $server->addPlugin(new \Sabre\CalDAV\Schedule\Plugin());
 $server->addPlugin(new \Sabre\CalDAV\Subscriptions\Plugin());
 $server->addPlugin(new \Sabre\CardDAV\Plugin());
+$server->addPlugin(new \Sabre\CardDAV\VCFExportPlugin());
 $server->addPlugin(new \Sabre\DAV\Browser\Plugin());
 $server->addPlugin(new \Sabre\DAV\Browser\GuessContentType());
 $server->addPlugin(new \Sabre\DAV\Locks\Plugin($lockBackend));
