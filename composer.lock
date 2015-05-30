@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6cc22987072e3c8c02f51119c8bf794a",
+    "hash": "cdcf922e3e46a444df295147872577d6",
     "packages": [
         {
             "name": "fguillot/picodb",
@@ -82,16 +82,16 @@
         },
         {
             "name": "sabre/dav",
-            "version": "3.0.0-beta2",
+            "version": "3.0.0-beta3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fruux/sabre-dav.git",
-                "reference": "ae1ab98bc155262d6fe002d0ffb8fbdb3486bba0"
+                "reference": "172f3b99050d6cb70823dd666e990e9696f96440"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fruux/sabre-dav/zipball/ae1ab98bc155262d6fe002d0ffb8fbdb3486bba0",
-                "reference": "ae1ab98bc155262d6fe002d0ffb8fbdb3486bba0",
+                "url": "https://api.github.com/repos/fruux/sabre-dav/zipball/172f3b99050d6cb70823dd666e990e9696f96440",
+                "reference": "172f3b99050d6cb70823dd666e990e9696f96440",
                 "shasum": ""
             },
             "require": {
@@ -159,7 +159,7 @@
                 "framework",
                 "iCalendar"
             ],
-            "time": "2015-05-27 15:38:01"
+            "time": "2015-05-29 20:13:14"
         },
         {
             "name": "sabre/event",
