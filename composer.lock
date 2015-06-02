@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cdcf922e3e46a444df295147872577d6",
+    "hash": "5153d616ba89eca8677738ea076bfc19",
     "packages": [
         {
             "name": "fguillot/picodb",
@@ -82,16 +82,16 @@
         },
         {
             "name": "sabre/dav",
-            "version": "3.0.0-beta3",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fruux/sabre-dav.git",
-                "reference": "172f3b99050d6cb70823dd666e990e9696f96440"
+                "reference": "e15b1e6642a89eeeba40ffbe1fd2a377c01ecbe5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fruux/sabre-dav/zipball/172f3b99050d6cb70823dd666e990e9696f96440",
-                "reference": "172f3b99050d6cb70823dd666e990e9696f96440",
+                "url": "https://api.github.com/repos/fruux/sabre-dav/zipball/e15b1e6642a89eeeba40ffbe1fd2a377c01ecbe5",
+                "reference": "e15b1e6642a89eeeba40ffbe1fd2a377c01ecbe5",
                 "shasum": ""
             },
             "require": {
@@ -159,7 +159,7 @@
                 "framework",
                 "iCalendar"
             ],
-            "time": "2015-05-29 20:13:14"
+            "time": "2015-06-02 15:56:19"
         },
         {
             "name": "sabre/event",
@@ -320,16 +320,16 @@
         },
         {
             "name": "sabre/vobject",
-            "version": "3.4.4",
+            "version": "3.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fruux/sabre-vobject.git",
-                "reference": "e4489add45181fc94d07c3f7938646ab8467ddca"
+                "reference": "75bd5ee4cea8138125ead50f5a3828b708a611ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fruux/sabre-vobject/zipball/e4489add45181fc94d07c3f7938646ab8467ddca",
-                "reference": "e4489add45181fc94d07c3f7938646ab8467ddca",
+                "url": "https://api.github.com/repos/fruux/sabre-vobject/zipball/75bd5ee4cea8138125ead50f5a3828b708a611ae",
+                "reference": "75bd5ee4cea8138125ead50f5a3828b708a611ae",
                 "shasum": ""
             },
             "require": {
@@ -382,7 +382,7 @@
                 "jCard",
                 "vCard"
             ],
-            "time": "2015-05-27 15:14:36"
+            "time": "2015-06-02 15:44:08"
         },
         {
             "name": "sabre/xml",
@@ -443,7 +443,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "sabre/dav": 10,
         "fguillot/picodb": 20,
         "fguillot/picofarad": 20
     },
