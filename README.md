@@ -1,6 +1,8 @@
 SimpleDAV
 =========
 
+**Development of SimpleDAV was discontinued. Consider using [sabre-katana](https://github.com/fruux/sabre-katana) instead.**
+
 SimpleDAV is a simplistic WebDAV, CalDAV and CardDAV server using [SabreDAV](https://github.com/fruux/sabre-dav).
 It is easy to setup and has almost no dependencies.
 
@@ -24,7 +26,7 @@ Configuration & Usage
 
 2. Login using the username *admin* and password *admin*.
 
-3. Change the password of your account (and change the username if you want). 
+3. Change the password of your account (and change the username if you want).
 *This part is not yet working. The username and password can only be changed manually using SQLite at the moment.*
 
 4. Setup your clients to use the CalDAV and CardDAV server.
