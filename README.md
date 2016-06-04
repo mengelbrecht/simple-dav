@@ -1,7 +1,7 @@
 SimpleDAV
 =========
 
-**Development of SimpleDAV was discontinued. Consider using [sabre-katana](https://github.com/fruux/sabre-katana) instead.**
+**Development of SimpleDAV was discontinued. Consider using [Baïkal](https://github.com/fruux/Baikal) instead.**
 
 SimpleDAV is a simplistic WebDAV, CalDAV and CardDAV server using [SabreDAV](https://github.com/fruux/sabre-dav).
 It is easy to setup and has almost no dependencies.
